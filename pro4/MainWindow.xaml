@@ -1,0 +1,79 @@
+﻿<Window x:Class="pro4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pro4"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ToolBar Height="40" VerticalAlignment="Top">
+            <Button Content="Menu"/>
+            <Button Command="Cut" Content="cut" ToolBar.OverflowMode="Always"/>
+            <Button Command="Copy" Content="Coppy" ToolBar.OverflowMode="Always"/>
+
+        </ToolBar>
+        <DockPanel Height="410" Background="Aqua">
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar Background="Yellow">
+                    <Button Command="Copy" ToolTip="Copy content text">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/copy.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="Paste" ToolTip="Paste content text" >
+                        <StackPanel>
+                            <Image Source="/Images/paste.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="Cut" ToolTip="Cut content text">
+                        <StackPanel>
+                            <Image Source="/Images/cut.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                    <Separator/>
+                    <Label Content="Fontsize "/>
+                    <ComboBox Name="cbbfont"  Width="30" SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem >12</ComboBoxItem>
+                        <ComboBoxItem>14</ComboBoxItem>
+                        <ComboBoxItem>16</ComboBoxItem>
+                        <ComboBoxItem>18</ComboBoxItem>
+                    </ComboBox>
+                    <Button Name="btn_color" Margin="2 0 0 0" Click="Btn_color_Click">
+                        <Image Source="/Images/color.png" Height="25" Width="25"/>
+                    </Button>
+                </ToolBar>
+                
+            </ToolBarTray>
+            <!--
+            <ToolBarTray DockPanel.Dock="Right" Orientation="Vertical">
+                <ToolBar>
+                    <Button>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/copy.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                    <Button>
+                        <StackPanel>
+                            <Image Source="/Images/paste.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                    <Button>
+                        <StackPanel>
+                            <Image Source="/Images/cut.png" Height="25" Width="25"/>
+                        </StackPanel>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>-->
+            <StatusBar DockPanel.Dock="Bottom" Height="40" Background="#FFCEE4FF">
+                <StatusBarItem>
+                    <TextBlock Name="txt_line" />
+                </StatusBarItem> 
+            </StatusBar>
+            <TextBox Name="txt_content" TextWrapping="Wrap" AcceptsReturn="True"  SelectionChanged="Txt_content_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            
+        </DockPanel>
+    </Grid>
+</Window>
